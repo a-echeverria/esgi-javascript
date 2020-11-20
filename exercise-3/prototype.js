@@ -1,28 +1,28 @@
-String.prototype.ucfirst = function (chaine) {
-    if (typeof chaine !== "string" || chaine === "") return "";
-    return chaine.charAt(0).toUpperCase() + chaine.slice(1);
+String.prototype.ucfirst = function () {
+    if (this.valueOf() === "") return "";
+    return this.valueOf().charAt(0).toUpperCase() + this.valueOf().slice(1);
 }
 
-String.prototype.capitalize = function (chaine) {
-    if (typeof chaine !== "string" || chaine === "") return "";
-    return chaine
+String.prototype.capitalize = function () {
+    if (typeof this.valueOf() !== "string" || this.valueOf() === "") return "";
+    return this.valueOf()
         .split(" ")
         .map((word) => ucfirst(word.toLowerCase()))
         .join(" ");
 }
 
-String.prototype.camelCase = function (chaine) {
-    if (typeof chaine !== "string" || chaine === "") return "";
-    return capitalize(chaine).replace(/\W/g, "");
+String.prototype.camelCase = function () {
+    if (typeof this.valueOf() !== "string" || this.valueOf() === "") return "";
+    return capitalize(this.valueOf()).replace(/\W/g, "");
 }
 
-String.prototype.snake_case = function (chaine) {
-    if (typeof chaine !== "string" || chaine === "") return "";
-    return chaine.toLowerCase().replace(/\W/g, "_");
+String.prototype.snake_case = function () {
+    if (typeof this.valueOf() !== "string" || this.valueOf() === "") return "";
+    return this.valueOf().toLowerCase().replace(/\W/g, "_");
 }
 
-String.prototype.leet = function (chaine) {
-    return chaine.replace(/[aeiouy]/gi, function (e) {
+String.prototype.leet = function () {
+    return this.valueOf().replace(/[aeiouy]/gi, function (e) {
         switch (e.toLowerCase()) {
             case "a":
                 return 4;
@@ -40,15 +40,15 @@ String.prototype.leet = function (chaine) {
     });
 }
 
-String.prototype.verlan = function (chaine) {
-    return chaine
+String.prototype.verlan = function () {
+    return this.valueOf()
         .split(" ")
         .map((word) => word.split("").reverse().join(""))
         .join(" ");
 }
 
-String.prototype.yoda = function (chaine) {
-    return chaine.split(" ").reverse().join(" ");
+String.prototype.yoda = function () {
+    return this.valueOf().split(" ").reverse().join(" ");
 }
 
 String.prototype.vig = function (string, code) {
