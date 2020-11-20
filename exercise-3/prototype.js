@@ -51,17 +51,16 @@ String.prototype.yoda = function () {
     return this.valueOf().split(" ").reverse().join(" ");
 }
 
-String.prototype.vig = function (string, code) {
-    if (typeof string !== "string") return "";
-    if (string.length === 0) return string;
+String.prototype.vig = function (code) {
+    if (this.length === 0) return this;
 
-    while (code.length < string.length) {
+    while (code.length < this.length) {
         code += code;
     }
-    code = code.substr(0, string.length);
+    code = code.substr(0, this.length);
     let codeIndex = 0;
 
-    return string
+    return this
         .split("")
         .map((letter, index) => {
             letter = letter.toLowerCase();
