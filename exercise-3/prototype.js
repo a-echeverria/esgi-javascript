@@ -4,20 +4,20 @@ String.prototype.ucfirst = function () {
 }
 
 String.prototype.capitalize = function () {
-    if (typeof this.valueOf() !== "string" || this.valueOf() === "") return "";
+    if (this.valueOf() === "") return "";
     return this.valueOf()
         .split(" ")
-        .map((word) => ucfirst(word.toLowerCase()))
+        .map((word) => word.toLowerCase().ucfirst())
         .join(" ");
 }
 
 String.prototype.camelCase = function () {
-    if (typeof this.valueOf() !== "string" || this.valueOf() === "") return "";
-    return capitalize(this.valueOf()).replace(/\W/g, "");
+    if (this.valueOf() === "") return "";
+    return this.valueOf().capitalize().replace(/\W/g, "");
 }
 
 String.prototype.snake_case = function () {
-    if (typeof this.valueOf() !== "string" || this.valueOf() === "") return "";
+    if (this.valueOf() === "") return "";
     return this.valueOf().toLowerCase().replace(/\W/g, "_");
 }
 
